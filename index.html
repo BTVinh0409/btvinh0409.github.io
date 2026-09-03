@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xuan Vinh Nguyen — App Developer</title>
+<style>
+  :root {
+    --bg: #f5ead8;
+    --text: #1c1c1e;
+    --muted: #6b6b6b;
+    --accent: #c4704b;
+    --card-bg: #ffffff;
+    --border: rgba(0,0,0,0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --text: #f5ead8;
+      --muted: #a8a8a8;
+      --accent: #e08a63;
+      --card-bg: #2a2a2c;
+      --border: rgba(255,255,255,0.1);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 4rem 1.5rem;
+  }
+  main {
+    max-width: 640px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    color: var(--muted);
+    margin: 0 0 2.5rem;
+    font-size: 1rem;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .card h2 {
+    font-size: 1.15rem;
+    margin: 0 0 0.4rem;
+  }
+  .card p {
+    color: var(--muted);
+    margin: 0 0 1rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+  .card a.button {
+    display: inline-block;
+    color: #fff;
+    background: var(--accent);
+    text-decoration: none;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .card .links {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .card .links a {
+    color: var(--accent);
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+  footer {
+    margin-top: 2.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Xuan Vinh Nguyen</h1>
+  <p class="subtitle">iOS apps, built independently.</p>
+
+  <div class="card">
+    <h2>Vale: Focus &amp; Relax</h2>
+    <p>A Pomodoro-style focus timer with breathing exercises and ambient sounds.</p>
+    <a class="button" href="https://apps.apple.com/us/app/vale-focus-relax/id6804119557">View on the App Store</a>
+    <div class="links">
+      <a href="/vale-support/privacy-policy.html">Privacy Policy</a>
+    </div>
+  </div>
+
+  <footer>
+    Contact: <a href="mailto:btvinh.it@gmail.com">btvinh.it@gmail.com</a>
+  </footer>
+</main>
+</body>
+</html>
