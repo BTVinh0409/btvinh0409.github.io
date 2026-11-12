@@ -1,0 +1,20 @@
+{%- comment -%} Compact card for apps that aren't featured. include.app — entry from _data/apps.yml {%- endcomment -%}
+{%- assign app = include.app -%}
+<article class="card app-tile reveal">
+  <div class="top">
+    <img src="/assets/img/{{ app.id }}/icon.png" width="60" height="60" alt="{{ app.short_name }} app icon">
+    <div>
+      <h3 class="display">{{ app.short_name }}</h3>
+      <p class="sub">{{ app.category }}</p>
+    </div>
+  </div>
+  <p>{{ app.tagline }}</p>
+  {%- if app.status == "soon" %}
+  <span class="soon">Coming soon</span>
+  {%- else %}
+  <div class="actions">
+    <a class="btn btn-primary btn-sm" href="{{ app.app_store_url }}"><svg aria-hidden="true"><use href="#apple"/></svg>App Store</a>
+    <a class="btn btn-secondary btn-sm" href="/{{ app.id }}/">Learn more</a>
+  </div>
+  {%- endif %}
+</article>

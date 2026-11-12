@@ -1,0 +1,64 @@
+---
+layout: default
+---
+{%- comment -%} App page. Front matter needs `app: <id>` matching _data/apps.yml. {%- endcomment -%}
+{%- assign app = site.data.apps | where: "id", page.app | first -%}
+{%- assign img = "/assets/img/" | append: app.id | append: "/" -%}
+<div class="wrap">
+  <a class="crumb" href="/#apps">{% include icon.html name="back" %}All apps</a>
+  {% include app-card.html app=app page=true %}
+
+  {%- if app.features %}
+  <section>
+    <div class="sec-head reveal">
+      <h2 class="display">What {{ app.short_name }} does <span class="muted">well</span></h2>
+    </div>
+    <div class="grid">
+      {%- for f in app.features %}
+      <div class="card reveal">
+        <div class="tile t-{{ f.tone | default: 'mint' }}">{% include icon.html name=f.icon %}</div>
+        <h4>{{ f.title }}</h4>
+        <p>{{ f.text }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- if app.screenshots %}
+  <section aria-label="Screenshots">
+    <div class="sec-head reveal">
+      <h2 class="display">Inside the app</h2>
+      <p>Real screens from {{ app.short_name }} on iPhone.</p>
+    </div>
+    <div class="strip" tabindex="0" aria-label="{{ app.short_name }} screenshots, scroll sideways">
+      {%- for s in app.screenshots %}
+      <figure><img src="{{ img }}{{ s.file }}" width="550" height="1196" loading="lazy" alt="{{ s.alt | escape }}"><figcaption>{{ s.title }}<span>{{ s.caption }}</span></figcaption></figure>
+      {%- endfor %}
+    </div>
+  </section>
+  {%- endif %}
+
+  {{ content }}
+
+  <section aria-label="Help">
+    <div class="info">
+      {%- if app.privacy_url %}
+      <a class="card reveal" href="{{ app.privacy_url }}">
+        <div class="tile t-mint">{% include icon.html name="shield" %}</div>
+        <h4>Privacy Policy</h4><p>What {{ app.short_name }} stores and why.</p>
+      </a>
+      {%- endif %}
+      <a class="card reveal" href="mailto:{{ site.email }}?subject={{ app.short_name | uri_escape }}%20support">
+        <div class="tile t-coral">{% include icon.html name="mail" %}</div>
+        <h4>Support</h4><p>Something not working? Email me.</p>
+      </a>
+      {%- if app.app_store_url and app.status != "soon" %}
+      <a class="card reveal" href="{{ app.app_store_url }}">
+        <div class="tile t-lav">{% include icon.html name="heart" %}</div>
+        <h4>Rate {{ app.short_name }}</h4><p>A review on the App Store helps a lot.</p>
+      </a>
+      {%- endif %}
+    </div>
+  </section>
+</div>

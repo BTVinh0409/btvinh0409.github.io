@@ -1,0 +1,14 @@
+title: Xuan Vinh Nguyen
+tagline: Calm iOS apps
+description: Independent iOS developer making calm apps for focus and rest.
+url: https://btvinh0409.github.io
+email: btvinh.it@gmail.com
+
+# app-ads.txt must be served as-is at the site root.
+include:
+  - app-ads.txt
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

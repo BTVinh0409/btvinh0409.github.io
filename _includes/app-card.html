@@ -1,0 +1,59 @@
+{%- comment -%}
+  Large dark card for one app.
+  include.app  — entry from _data/apps.yml
+  include.page — true on the app's own page (title is h1, no "Learn more")
+{%- endcomment -%}
+{%- assign app = include.app -%}
+{%- assign img = "/assets/img/" | append: app.id | append: "/" -%}
+{%- capture theme -%}
+  {%- if app.theme -%}
+    {%- if app.theme.hero %}--hero:{{ app.theme.hero }};{% endif -%}
+    {%- if app.theme.hero_sub %}--hero-sub:{{ app.theme.hero_sub }};{% endif -%}
+    {%- if app.theme.hero_chip %}--hero-chip:{{ app.theme.hero_chip }};--hero-line:{{ app.theme.hero_chip }};{% endif -%}
+    {%- if app.theme.action %}--hero-action:{{ app.theme.action }};{% endif -%}
+    {%- if app.theme.on_action %}--on-hero-action:{{ app.theme.on_action }};{% endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+<article class="app reveal"{% if theme != "" %} style="{{ theme }}"{% endif %}>
+  <div>
+    <div class="app-top">
+      <img class="app-icon" src="{{ img }}icon.png" width="84" height="84" alt="{{ app.short_name }} app icon">
+      <div>
+        {% if include.page %}<h1 class="display">{{ app.name }}</h1>{% else %}<h3 class="display">{{ app.name }}</h3>{% endif %}
+        <p class="sub">{{ app.category }}</p>
+      </div>
+    </div>
+    <p class="desc">{{ app.description }}</p>
+    {%- if app.chips %}
+    <div class="chips">{% for chip in app.chips %}<span class="chip">{{ chip }}</span>{% endfor %}</div>
+    {%- endif %}
+    <div class="actions">
+      {%- if app.status == "soon" %}
+      <span class="chip">Coming soon</span>
+      {%- else %}
+      <a class="btn btn-hero" href="{{ app.app_store_url }}">
+        <svg aria-hidden="true"><use href="#apple"/></svg>Download on the App Store
+      </a>
+      {%- endif %}
+      {%- unless include.page %}
+      <a class="btn btn-hero-ghost" href="/{{ app.id }}/">Learn more</a>
+      {%- endunless %}
+    </div>
+    {%- unless include.page %}
+    <div class="app-links">
+      {% if app.privacy_url %}<a href="{{ app.privacy_url }}">Privacy Policy</a>{% endif %}
+      <a href="mailto:{{ site.email }}?subject={{ app.short_name | uri_escape }}%20support">Support</a>
+    </div>
+    {%- endunless %}
+  </div>
+  {%- if app.hero_shots %}
+  <div class="phones" aria-hidden="true">
+    {%- if app.hero_shots.size == 1 %}
+    <div class="phone solo"><img src="{{ img }}{{ app.hero_shots[0] }}" width="550" height="1196" alt=""></div>
+    {%- else %}
+    <div class="phone p1"><img src="{{ img }}{{ app.hero_shots[0] }}" width="550" height="1196" alt=""></div>
+    <div class="phone p2"><img src="{{ img }}{{ app.hero_shots[1] }}" width="550" height="1196" alt=""></div>
+    {%- endif %}
+  </div>
+  {%- endif %}
+</article>

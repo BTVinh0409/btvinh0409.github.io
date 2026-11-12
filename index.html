@@ -1,113 +1,56 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Xuan Vinh Nguyen — App Developer</title>
-<style>
-  :root {
-    --bg: #f5ead8;
-    --text: #1c1c1e;
-    --muted: #6b6b6b;
-    --accent: #c4704b;
-    --card-bg: #ffffff;
-    --border: rgba(0,0,0,0.08);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #1c1c1e;
-      --text: #f5ead8;
-      --muted: #a8a8a8;
-      --accent: #e08a63;
-      --card-bg: #2a2a2c;
-      --border: rgba(255,255,255,0.1);
-    }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 4rem 1.5rem;
-  }
-  main {
-    max-width: 640px;
-    width: 100%;
-  }
-  h1 {
-    font-size: 1.6rem;
-    margin: 0 0 0.25rem;
-  }
-  .subtitle {
-    color: var(--muted);
-    margin: 0 0 2.5rem;
-    font-size: 1rem;
-  }
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  .card h2 {
-    font-size: 1.15rem;
-    margin: 0 0 0.4rem;
-  }
-  .card p {
-    color: var(--muted);
-    margin: 0 0 1rem;
-    line-height: 1.5;
-    font-size: 0.95rem;
-  }
-  .card a.button {
-    display: inline-block;
-    color: #fff;
-    background: var(--accent);
-    text-decoration: none;
-    padding: 0.55rem 1.1rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-  .card .links {
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-  }
-  .card .links a {
-    color: var(--accent);
-    text-decoration: none;
-    margin-right: 1rem;
-  }
-  footer {
-    margin-top: 2.5rem;
-    color: var(--muted);
-    font-size: 0.85rem;
-  }
-  footer a { color: var(--accent); }
-</style>
-</head>
-<body>
-<main>
-  <h1>Xuan Vinh Nguyen</h1>
-  <p class="subtitle">iOS apps, built independently.</p>
-
-  <div class="card">
-    <h2>Vale: Focus &amp; Relax</h2>
-    <p>A Pomodoro-style focus timer with breathing exercises and ambient sounds.</p>
-    <a class="button" href="https://apps.apple.com/us/app/vale-focus-relax/id6804119557">View on the App Store</a>
-    <div class="links">
-      <a href="/vale-support/privacy-policy.html">Privacy Policy</a>
+---
+layout: default
+---
+{%- assign featured = site.data.apps | where: "featured", true -%}
+{%- assign others = site.data.apps | where_exp: "a", "a.featured != true" -%}
+{%- assign first = featured.first | default: site.data.apps.first -%}
+<div class="wrap">
+  <section class="intro">
+    <div class="reveal">
+      <span class="eyebrow"><i></i>Independent iOS developer</span>
+      <h1 class="display">Calm apps,<br><span class="muted">made by one person.</span></h1>
+      <p class="lead">I'm Xuan Vinh Nguyen. I design and build small iOS apps that help you focus, rest and get through the day without noise, streaks or guilt.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#apps">See my apps</a>
+        <a class="btn btn-secondary" href="#contact">Say hello</a>
+      </div>
     </div>
-  </div>
+    <div class="rings reveal" aria-hidden="true">
+      <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span>
+      <span class="label">Breathe in · 4s</span>
+    </div>
+  </section>
+</div>
 
-  <footer>
-    Contact: <a href="mailto:btvinh.it@gmail.com">btvinh.it@gmail.com</a>
-  </footer>
-</main>
-</body>
-</html>
+<div class="wrap" id="apps">
+  <section style="padding-top:0">
+    <div class="sec-head reveal">
+      <h2 class="display">My apps</h2>
+      <p>{% if site.data.apps.size == 1 %}One app for now, built carefully. More when they're ready.{% else %}Small, focused apps for iPhone.{% endif %}</p>
+    </div>
+
+    {%- for app in featured %}
+    {% include app-card.html app=app %}
+    {%- endfor %}
+
+    {%- if others.size > 0 %}
+    <div class="app-grid">
+      {%- for app in others %}
+      {% include app-tile.html app=app %}
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </section>
+
+  <section id="principles">
+    <div class="sec-head reveal">
+      <h2 class="display">How I build</h2>
+    </div>
+    <div class="principles">
+      <div class="card principle reveal"><span class="n display num">01</span><div><h4>Calm, not a scoreboard</h4><p>Numbers are gentle facts. No streaks to lose, no red warnings on a slow day.</p></div></div>
+      <div class="card principle reveal"><span class="n display num">02</span><div><h4>Free, no account</h4><p>Every feature is free. Open the app and start; nothing to sign up for.</p></div></div>
+      <div class="card principle reveal"><span class="n display num">03</span><div><h4>Your plans stay on your phone</h4><p>What you create in my apps is stored on your device, not on my servers.</p></div></div>
+      <div class="card principle reveal"><span class="n display num">04</span><div><h4>Native first</h4><p>SwiftUI, Live Activities, Dynamic Type, Reduce Motion and dark mode, done properly.</p></div></div>
+    </div>
+  </section>
+</div>

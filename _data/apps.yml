@@ -1,0 +1,34 @@
+# One entry per app. Order here is the order on the home page.
+# See README.md for every field. Images live in /assets/img/<id>/.
+#
+# featured: true   → large dark card on the home page (normally one app)
+# status: soon     → shown as "Coming soon", no App Store button
+# theme:           → optional colors for the dark card (defaults to Vale teal)
+
+- id: vale
+  name: "Vale: Focus & Relax"
+  short_name: Vale
+  category: Productivity · iPhone
+  tagline: A calm Pomodoro timer that knows what's next.
+  description: >-
+    A Pomodoro focus timer that knows what's next. Plan routines that remind you,
+    focus with ambient sounds, then take a real break with a one-minute guided breath.
+  app_store_id: "6804119557"
+  app_store_url: https://apps.apple.com/us/app/vale-focus-relax/id6804119557
+  privacy_url: /vale-support/privacy-policy.html
+  featured: true
+  chips: [Free, No account needed, Live Activity, Light & dark]
+  hero_shots: [today.jpg, focus.jpg]
+  features:
+    - { icon: timer, tone: coral, title: Pomodoro focus, text: "Cycles, breaks and ambient study sounds, with the timer on your Lock Screen." }
+    - { icon: bell, tone: mint, title: Routines that remind you, text: "Set weekday study blocks once. Tap the reminder and the session starts." }
+    - { icon: breath, tone: leaf, title: Breaks that recharge, text: "Box, 4-7-8 and calm breathing patterns, or a free break to step away." }
+    - { icon: chart, tone: lav, title: A calm weekly view, text: "See where your focus went, by week and by task. No streaks, no scores." }
+  screenshots:
+    - { file: today.jpg, title: Today, caption: "Know what's next", alt: "Today screen with focused time and the next task" }
+    - { file: focus.jpg, title: Focus, caption: Cycle by cycle, alt: "Focus timer at 20:08 of 25 minutes" }
+    - { file: break.jpg, title: Break, caption: "Breathe, rest or keep going", alt: "Break choice screen" }
+    - { file: breathing.jpg, title: Breathe, caption: One-minute guided breath, alt: "Guided breathing exercise" }
+    - { file: plan.jpg, title: Plan, caption: Routines and one-time tasks, alt: "Plan screen with repeating routines" }
+    - { file: insights.jpg, title: Insights, caption: Where your focus went, alt: "Insights with weekly focus time" }
+    - { file: today-dark.jpg, title: Dark mode, caption: Easy on the eyes at night, alt: "Today screen in dark mode" }
