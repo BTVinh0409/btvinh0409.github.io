@@ -6,7 +6,7 @@
 # theme:           → optional colors for the dark card (defaults to Vale teal)
 
 - id: vale
-  name: "Vale: Focus & Relax"
+  name: "Vale: Pomodoro Focus Timer"
   short_name: Vale
   category: Productivity · iPhone
   tagline: A calm Pomodoro timer that knows what's next.
