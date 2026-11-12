@@ -54,7 +54,7 @@ layout: default
         <h4>Support</h4><p>Something not working? Email me.</p>
       </a>
       {%- if app.app_store_url and app.status != "soon" %}
-      <a class="card reveal" href="{{ app.app_store_url }}">
+      <a class="card reveal" href="{{ app.app_store_url }}?action=write-review">
         <div class="tile t-lav">{% include icon.html name="heart" %}</div>
         <h4>Rate {{ app.short_name }}</h4><p>A review on the App Store helps a lot.</p>
       </a>
